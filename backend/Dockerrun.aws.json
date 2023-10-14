@@ -2,8 +2,8 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "calvincode-api",
-      "image": "calvincode/calvincode-api",
+      "name": "amigoscode-api",
+      "image": "calvinleung2021/calvincode-api:latest",
       "essential": true,
       "memory": 512,
       "portMappings": [
@@ -15,7 +15,7 @@
       "environment": [
         {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:postgresql://db:5432/customer"
+          "value": "jdbc:postgresql://awseb-e-iwd7qkfz8c-stack-awsebrdsdatabase-3fujbppsqyyl.cd6wzooklmar.us-east-1.rds.amazonaws.com:5432/customer"
         }
       ]
     }

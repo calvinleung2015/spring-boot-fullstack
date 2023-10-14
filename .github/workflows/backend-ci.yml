@@ -23,20 +23,3 @@ jobs:
           cache: 'maven'
       - name: Build and run Unit/Integration Test with Maven
         run: mvn -ntp -B verify
-#      postgres:
-#        image: postgres:15.3
-#        env:
-#          POSTGRES_USER: amigoscode
-#          POSTGRES_PASSWORD: password
-#          POSTGRES_DB: customer
-#        ports:
-#          - 5332:5432
-#        options: >-
-#          --health-cmd pg_isready
-#          --health-interval 10s
-#          --health-timeout 5s
-#          --health-retries 5
-#
-#    defaults:
-#      run:
-#        working-directory: ./backend

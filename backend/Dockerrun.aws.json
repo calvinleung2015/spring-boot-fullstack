@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "amigoscode-api",
-      "image": "calvinleung2021/calvincode-api:latest",
+      "image": "calvinleung2021/calvincode-api:19.10.2023.04.09.10",
       "essential": true,
       "memory": 512,
       "portMappings": [

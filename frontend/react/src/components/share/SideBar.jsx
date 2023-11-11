@@ -101,6 +101,7 @@ const SidebarContent = ({onClose, ...rest}) => {
         </Box>
     );
 };
+
 const NavItem = ({icon, children, ...rest}) => {
     return (
       //  <Link href="frontend/react/src/components/shared#" style={{textDecoration: 'none'}} _focus={{boxShadow: 'none'}}>

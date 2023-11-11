@@ -7,7 +7,6 @@ on:
       - main
     paths:
       - frontend/react/**
-
 jobs:
   deploy:
     runs-on: ubuntu-latest

@@ -30,7 +30,7 @@ jobs:
           REPO=calvincode-react \
           TAG=${{ steps.build-number.outputs.BUILD_NUMBER }} \
           ../../.ci/build-publish.sh . \
-            --build-arg api_base_url=http://amigoscode-api-env.eba-js88kfrq.us-east-1.elasticbeanstalk.com/
+          --build-arg api_base_url=http://amigoscode-api-env.eba-js88kfrq.us-east-1.elasticbeanstalk.com/
       - name: Update Dockerrun.aws.json react image tag with new build number
         run: |
           echo "Dockerrun.aws.json before updating tag"

@@ -3,21 +3,31 @@ import SidebarWithHeader from './components/share/SideBar';
 import { useEffect, useState } from 'react';
 import { getCustomers } from '../services/client';
 import CardWithImage from './components/Card';
-
+import DrawerForm from './components/CreateCustomerDrawer';
+import { errorNotification } from '../services/notification';
 const App = () => {
 
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [err, setError] = useState("");
 
-  useEffect(()=>{
+  const fetchCustomers = () => {
     setLoading(true);
     getCustomers().then(res => {
       setCustomers(res.data)
     }).catch(err => {
-      console.log(err)
+      setError(err.response.data.message)
+      errorNotification(
+        err.code,
+        err.response.data.message
+    )
     }).finally(() => {
       setLoading(false)
     })
+  }
+
+  useEffect(()=>{
+    fetchCustomers()
   }, [])
 
   if(loading) {
@@ -34,21 +44,37 @@ const App = () => {
     )
   }
 
+  if (err) {
+    <SidebarWithHeader>
+    <DrawerForm
+      fetchCustomers={fetchCustomers}
+    />
+    <Text mt={5}>Oops there was an error</Text>
+  </SidebarWithHeader> 
+  }
+
   if(customers.length <= 0){
     <SidebarWithHeader>
-      <Text>No customers available</Text>
+      <DrawerForm
+        fetchCustomers={fetchCustomers}
+      />
+      <Text mt={5}>No customers available</Text>
     </SidebarWithHeader> 
   }
 
 
   return (
     <SidebarWithHeader>
+      <DrawerForm
+        fetchCustomers={fetchCustomers}
+      />
       <Wrap justify={"center"} spacing={"30px"}>
           {customers.map((customer, index) => (
             <WrapItem key={index}>
                 <CardWithImage
                   {...customer}
                   imageNumber={index}
+                  fetchCustomers={fetchCustomers}
                 />
             </WrapItem>
           ))}

@@ -42,6 +42,18 @@ services:
     depends_on:
       - db
     restart: unless-stopped
+  calvincode-react:
+    container_name: calvincode-react
+    image: calvinleung2021/calvincode-react
+    build:
+      context: frontend/react
+      args:
+        api_base_url: http://localhost:8088
+    ports:
+      - "3001:5173"
+    depends_on:
+      - calvincode-api
+    restart: unless-stopped
 
 
 networks:

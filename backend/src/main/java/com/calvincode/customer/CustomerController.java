@@ -39,5 +39,6 @@ public class CustomerController {
             @PathVariable("customerId") Integer customerId,
             @RequestBody CustomerUpdateRequest updateRequest) {
         customerService.updateCustomer(customerId, updateRequest);
+
     }
 }

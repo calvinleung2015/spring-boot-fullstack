@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "calvincode-react",
-      "image": "calvinleung2021/calvincode-react:latest",
+      "image": "calvinleung2021/calvincode-react:latest2",
       "essential": true,
       "memory": 256,
       "portMappings": [

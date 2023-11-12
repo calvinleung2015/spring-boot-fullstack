@@ -35,7 +35,7 @@ jobs:
         run: |
           echo "../../Dockerrun.aws.json before updating tag"
           cat ../../Dockerrun.aws.json
-          sed -i -E 's_(calvinleung2021/calvincode-react:)([^"]*)_\1''latest_' ../../Dockerrun.aws.json
+          sed -i -E 's_(calvinleung2021/calvincode-react:)([^"]*)_\1''latest2_' ../../Dockerrun.aws.json
           echo "Dockerrun.aws.json after updating tag"
           cat ../../Dockerrun.aws.json
       - name: Deploy to Elastic Beanstalk
@@ -55,7 +55,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add ../../Dockerrun.aws.json
-          git commit -m "Update Dockerrun.aws.json docker image with new tag latest"
+          git commit -m "Update Dockerrun.aws.json docker image with new tag latest2"
           git push
           
   
